@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="POSDB2Model.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;C:\Users\Frei\Documents\Visual Studio 2015\Projects\RMC2021\POSDB2.sqlite&quot;" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin_users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="password" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="designation" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="admin" Type="integer" />
+        </EntityType>
+        <EntityType Name="bprofile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bname" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="tinumber" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="baddress" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="bnature" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="dtinumber" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="blisencenumber" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="current_user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fullname" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="description" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="username" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="password" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="admin" Type="integer" />
+        </EntityType>
+        <EntityType Name="Lisensya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pid" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="ukey" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="uname" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="uemail" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="label" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="description" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="dishcost" Type="real" />
+          <Property Name="dishprice" Type="real" />
+          <Property Name="available" Type="integer" />
+          <Property Name="loggedby" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="Reminders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="repeat" Type="integer" />
+          <Property Name="date" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="title" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="sales_customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customername" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="customeraddress" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="customercontact" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="sales_pending_orders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="label" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="qty" Type="integer" />
+          <Property Name="dateorderplaced" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="customername" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="discount" Type="integer" />
+          <Property Name="price" Type="real" />
+          <Property Name="deliverydate" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="tprice" Type="real" />
+          <Property Name="loggedby" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="notes" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="sales_peritem">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="purchasedate" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="category" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="label" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="costtomake" Type="real" />
+          <Property Name="finalsaleprice" Type="real" />
+          <Property Name="discount" Type="integer" />
+          <Property Name="customername" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="originalprice" Type="real" />
+          <Property Name="cashier" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityContainer Name="POSDB2ModelStoreContainer">
+          <EntitySet Name="admin_users" EntityType="Self.admin_users" store:Type="Tables" />
+          <EntitySet Name="bprofile" EntityType="Self.bprofile" store:Type="Tables" />
+          <EntitySet Name="current_user" EntityType="Self.current_user" store:Type="Tables" />
+          <EntitySet Name="Lisensya" EntityType="Self.Lisensya" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" store:Type="Tables" />
+          <EntitySet Name="Reminders" EntityType="Self.Reminders" store:Type="Tables" />
+          <EntitySet Name="sales_customers" EntityType="Self.sales_customers" store:Type="Tables" />
+          <EntitySet Name="sales_pending_orders" EntityType="Self.sales_pending_orders" store:Type="Tables" />
+          <EntitySet Name="sales_peritem" EntityType="Self.sales_peritem" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="POSDB2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="admin_users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="fullname" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="designation" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="admin" Type="Int64" />
+        </EntityType>
+        <EntityType Name="bprofile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bname" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tinumber" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="baddress" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="bnature" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="dtinumber" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="blisencenumber" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="current_user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fullname" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="admin" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Lisensya">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pid" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="ukey" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="uname" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="uemail" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="label" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="dishcost" Type="Double" />
+          <Property Name="dishprice" Type="Double" />
+          <Property Name="available" Type="Int64" />
+          <Property Name="loggedby" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Reminder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="repeat" Type="Int64" />
+          <Property Name="date" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sales_customers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customername" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="customeraddress" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="customercontact" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="POSDB2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="admin_users" EntityType="Self.admin_users" />
+          <EntitySet Name="bprofiles" EntityType="Self.bprofile" />
+          <EntitySet Name="current_user" EntityType="Self.current_user" />
+          <EntitySet Name="Lisensyas" EntityType="Self.Lisensya" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="Reminders" EntityType="Self.Reminder" />
+          <EntitySet Name="sales_customers" EntityType="Self.sales_customers" />
+          <EntitySet Name="sales_peritem" EntityType="POSDB2Model.sales_peritem" />
+          <EntitySet Name="sales_pending_orders" EntityType="POSDB2Model.sales_pending_orders" />
+        </EntityContainer>
+        <EntityType Name="sales_peritem">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="sid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="purchasedate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="category" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="label" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="costtomake" Type="Double" />
+          <Property Name="finalsaleprice" Type="Double" />
+          <Property Name="discount" Type="Int64" />
+          <Property Name="customername" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="originalprice" Type="Double" />
+          <Property Name="cashier" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sales_pending_orders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="label" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="qty" Type="Int64" />
+          <Property Name="dateorderplaced" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="customername" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="discount" Type="Int64" />
+          <Property Name="price" Type="Double" />
+          <Property Name="deliverydate" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="tprice" Type="Double" />
+          <Property Name="loggedby" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="notes" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="POSDB2ModelStoreContainer" CdmEntityContainer="POSDB2Entities">
+          <EntitySetMapping Name="admin_users">
+            <EntityTypeMapping TypeName="POSDB2Model.admin_users">
+              <MappingFragment StoreEntitySet="admin_users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="admin" ColumnName="admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bprofiles">
+            <EntityTypeMapping TypeName="POSDB2Model.bprofile">
+              <MappingFragment StoreEntitySet="bprofile">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="bname" ColumnName="bname" />
+                <ScalarProperty Name="tinumber" ColumnName="tinumber" />
+                <ScalarProperty Name="baddress" ColumnName="baddress" />
+                <ScalarProperty Name="bnature" ColumnName="bnature" />
+                <ScalarProperty Name="dtinumber" ColumnName="dtinumber" />
+                <ScalarProperty Name="blisencenumber" ColumnName="blisencenumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="current_user">
+            <EntityTypeMapping TypeName="POSDB2Model.current_user">
+              <MappingFragment StoreEntitySet="current_user">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="admin" ColumnName="admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lisensyas">
+            <EntityTypeMapping TypeName="POSDB2Model.Lisensya">
+              <MappingFragment StoreEntitySet="Lisensya">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pid" ColumnName="pid" />
+                <ScalarProperty Name="ukey" ColumnName="ukey" />
+                <ScalarProperty Name="uname" ColumnName="uname" />
+                <ScalarProperty Name="uemail" ColumnName="uemail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="POSDB2Model.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="dishcost" ColumnName="dishcost" />
+                <ScalarProperty Name="dishprice" ColumnName="dishprice" />
+                <ScalarProperty Name="available" ColumnName="available" />
+                <ScalarProperty Name="loggedby" ColumnName="loggedby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reminders">
+            <EntityTypeMapping TypeName="POSDB2Model.Reminder">
+              <MappingFragment StoreEntitySet="Reminders">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="repeat" ColumnName="repeat" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sales_customers">
+            <EntityTypeMapping TypeName="POSDB2Model.sales_customers">
+              <MappingFragment StoreEntitySet="sales_customers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="customername" ColumnName="customername" />
+                <ScalarProperty Name="customeraddress" ColumnName="customeraddress" />
+                <ScalarProperty Name="customercontact" ColumnName="customercontact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sales_peritem">
+            <EntityTypeMapping TypeName="POSDB2Model.sales_peritem">
+              <MappingFragment StoreEntitySet="sales_peritem">
+                <ScalarProperty Name="cashier" ColumnName="cashier" />
+                <ScalarProperty Name="originalprice" ColumnName="originalprice" />
+                <ScalarProperty Name="customername" ColumnName="customername" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="finalsaleprice" ColumnName="finalsaleprice" />
+                <ScalarProperty Name="costtomake" ColumnName="costtomake" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="purchasedate" ColumnName="purchasedate" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sales_pending_orders">
+            <EntityTypeMapping TypeName="POSDB2Model.sales_pending_orders">
+              <MappingFragment StoreEntitySet="sales_pending_orders">
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="loggedby" ColumnName="loggedby" />
+                <ScalarProperty Name="tprice" ColumnName="tprice" />
+                <ScalarProperty Name="deliverydate" ColumnName="deliverydate" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="customername" ColumnName="customername" />
+                <ScalarProperty Name="dateorderplaced" ColumnName="dateorderplaced" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
